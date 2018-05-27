@@ -100,28 +100,37 @@
   </section>
 
   <!-- Section Boxes -->
-  <section  class="section-boxes center">
+  <section class="section-boxes center">
     <div class="row">
-      <div class="col s12 m6 l3 green darken-1 white-text box">
-        <i class="material-icons medium">assessment</i>
-        <h4>Srvice 1</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non illo earum.</p>
-      </div>
-      <div class="col s12 m6 l3 blue darken-1 white-text box">
-        <i class="material-icons medium">people</i>
-        <h4>Srvice 2</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non illo earum.</p>
-      </div>
-      <div class="col s12 m6 l3 green darken-1 white-text box">
-        <i class="material-icons medium">assessment</i>
-        <h4>Srvice 3</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non illo earum.</p>
-      </div>
-      <div class="col s12 m6 l3 blue darken-1 white-text box">
-        <i class="material-icons medium">people</i>
-        <h4>Srvice 4</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non illo earum.</p>
-      </div>
+
+      <a href="#">
+        <div class="col s12 m6 l3 green darken-1 white-text box">
+          <i class="material-icons medium">assessment</i>
+          <h4>Srvice 1</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non illo earum.</p>
+        </div>
+      </a>
+      <a href="#">
+        <div class="col s12 m6 l3 blue darken-1 white-text box">
+          <i class="material-icons medium">people</i>
+          <h4>Srvice 2</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non illo earum.</p>
+        </div>
+      </a>
+      <a href="#">
+        <div class="col s12 m6 l3 green darken-1 white-text box">
+          <i class="material-icons medium">assessment</i>
+          <h4>Srvice 3</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non illo earum.</p>
+        </div>
+      </a>
+      <a href="#">
+        <div class="col s12 m6 l3 blue darken-1 white-text box">
+          <i class="material-icons medium">people</i>
+          <h4>Srvice 4</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non illo earum.</p>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -241,14 +250,80 @@
     </div>
   </section>
 
-  <!-- Section Contact -->
-  <section class="section scrollspy" id="contact">
 
+  <!-- Section Contact -->
+  <section class="section section-contact scrollspy" id="contact">
+    <div id="googlemap"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6 offset-m6">
+          <div class="card-panel z-depth-5">
+            <h4 class="center">Contact</h4>
+            <div class="input-field">
+              <input type="text" placeholder="Name" id="name">
+              <label for="name">Name</label>
+            </div>
+            <div class="input-field">
+              <input type="text" placeholder="Email" id="email">
+              <label for="email">Name</label>
+            </div>
+            <div class="input-field">
+              <input type="text" placeholder="Phone number" id="phone">
+              <label for="phone">Name</label>
+            </div>
+            <div class="input-field">
+              <textarea name="message" id="message" cols="30" rows="10" class="materialize-textarea"></textarea>
+              <label for="message">Message</label>
+            </div>
+            <input type="submit" value="Send" class="btn green center">
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="page-footer green darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5>Location</h5>
+          <p>Versichrung, INC</p>
+          <p>8000 Zürich</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li>
+              <a class="white-text" href="#home">Home</a>
+            </li>
+            <li>
+              <a class="white-text" href="#about">About</a>
+            </li>
+            <li>
+              <a class="white-text" href="#services">Services</a>
+            </li>
+            <li>
+              <a class="white-text" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright green darken-4">
+      <div class="container">
+        Versicherungs © 2018
+        <a class="grey-text text-lighten-4 right" href="#home">
+          <i class="material-icons left">keyboard_arrow_up</i> Back To Top
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
   <script>
     $(document).ready(function () {
       // Init Side nav
@@ -257,7 +332,7 @@
       // Init Slider
       $('.slider').slider({
         indicators: false,
-        height: 700,
+        height: 750,
         transition: 500,
         interval: 6000
       });
@@ -267,6 +342,39 @@
         scrollOffset: 50,
         throttle: 50
       });
+
+      const position = [47.376887, 8.541694];
+      const centerPosition = [47.356187, 8.541124];
+
+      function showGoogleMaps() {
+        // Map positions
+        const latLng = new google.maps.LatLng(position[0], position[1]);
+        const centerLatLng = new google.maps.LatLng(centerPosition[0], centerPosition[1]);
+
+        // Map options
+        const mapOptions = {
+          zoom: 12,
+          streetViewControl: false,
+          scaleControl: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: centerLatLng
+        }
+
+        // Create map
+        map = new google.maps.Map(document.getElementById('googlemap'), mapOptions);
+
+        // Show Marker
+        marker = new google.maps.Marker({
+          position: latLng,
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP
+        });
+      }
+
+      // Maps event
+      google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+
 
     });
   </script>
