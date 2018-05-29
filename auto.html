@@ -180,14 +180,50 @@
              <div class="card-content">
                 <ul class="stepper horizontal" id="horizontal">
                    <li class="step active">
-                      <div data-step-label="To step-title!" class="step-title waves-effect waves-dark">Step 1</div>
+                      <div class="step-title waves-effect waves-dark">Step 1</div>
                       <div class="step-content">
                          <div class="row">
-                           <h1>TEST</h1>
-                            <div class="input-field col s12">
-                               <input name="email" type="email" class="validate" required>
-                               <label for="email">Your e-mail</label>
-                            </div>
+
+                          <div class="input-field">
+                            <select>
+                              <option value="" disabled selected>Year</option>
+                              <option value="1">2000</option>
+                              <option value="2">2001</option>
+                              <option value="3">2002</option>
+                            </select>
+                            <label>Month</label>
+                          </div>
+                          <div class="input-field">
+                            <select>
+                              <option value="" disabled selected>Month</option>
+                              <option value="1">Jan</option>
+                              <option value="2">Feb</option>
+                              <option value="3">Mar</option>
+                            </select>
+                            <label>Month</label>
+                          </div>
+          
+                          <div class="input-field">
+                            <select>
+                              <option value="" disabled selected>Marke</option>
+                              <option value="1">Audi</option>
+                              <option value="2">BMW</option>
+                              <option value="3">Mercedes</option>
+                            </select>
+                            <label>Marke</label>
+                          </div>
+          
+          
+                          <label for="Treibstoff">Treibstoff</label>
+                          <input class="with-gap" name="grp1" type="radio" id="r1">
+                          <label for="r1">Diesel</label>
+          
+                          <input class="with-gap" name="grp1" type="radio" id="r2">
+                          <label for="r2">Benzin</label>
+          
+                          <input class="with-gap" name="grp1" type="radio" id="r3">
+                          <label for="r3">Andere</label>
+          
                          </div>
                          <div class="step-actions">
                             <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
@@ -292,6 +328,8 @@
 
       // Init form selector
       $('select').material_select();
+
+       $('.stepper').activateStepper();
 
 
       const position = [47.376887, 8.541694];
