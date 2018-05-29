@@ -8,6 +8,8 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link type="text/css" rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.css">
+  <!--Import Materialize-Stepper CSS -->
+  <link rel="stylesheet" href="css/materialize-stepper.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,7 +62,7 @@
   </ul>
 
   <!-- Calculate -->
-  <section id="auto-calculate" class="section">
+  <!-- <section id="auto-calculate" class="section">
     <div class="container">
       <div class="row">
         <div class="col s12 m12">
@@ -117,7 +119,7 @@
                   <label>Marke</label>
                 </div>
 
-                
+
                 <label for="Treibstoff">Treibstoff</label>
                 <input class="with-gap" name="grp1" type="radio" id="r1">
                 <label for="r1">Diesel</label>
@@ -169,8 +171,59 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
+  <div class="section scrollspy" id="horizontal-stepper">
+    <div class="row">
+       <div class="col s12">
+          <div class="card">
+             <div class="card-content">
+                <ul class="stepper horizontal" id="horizontal">
+                   <li class="step active">
+                      <div data-step-label="To step-title!" class="step-title waves-effect waves-dark">Step 1</div>
+                      <div class="step-content">
+                         <div class="row">
+                           <h1>TEST</h1>
+                            <div class="input-field col s12">
+                               <input name="email" type="email" class="validate" required>
+                               <label for="email">Your e-mail</label>
+                            </div>
+                         </div>
+                         <div class="step-actions">
+                            <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
+                         </div>
+                      </div>
+                   </li>
+                   <li class="step">
+                      <div class="step-title waves-effect waves-dark">Step 2</div>
+                      <div class="step-content">
+                         <div class="row">
+                            <div class="input-field col s12">
+                               <input id name="password" type="password" class="validate" required>
+                               <label for="password">Your password</label>
+                            </div>
+                         </div>
+                         <div class="step-actions">
+                            <button class="waves-effect waves-dark btn blue next-step" data-feedback="someFunction">CONTINUE</button>
+                            <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                         </div>
+                      </div>
+                   </li>
+                   <li class="step">
+                      <div class="step-title waves-effect waves-dark">Step 3</div>
+                      <div class="step-content">
+                         Finish!
+                         <div class="step-actions">
+                            <button class="waves-effect waves-dark btn blue" type="submit">SUBMIT</button>
+                         </div>
+                      </div>
+                   </li>
+                </ul>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
 
   <!-- Footer -->
   <footer class="page-footer green darken-1">
@@ -214,6 +267,10 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script src="http://maps.googleapis.com/maps/api/js"></script>
+  <!-- jQueryValidation Plugin (optional) -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+  <!--Import Materialize-Stepper JavaScript -->
+  <script src="js/materialize-stepper.min.js"></script>
   <script>
     $(document).ready(function () {
       // Init Side nav
